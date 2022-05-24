@@ -2,6 +2,7 @@ services:
   app:
     build: .
     environment:
+      - MY_HOSTNAME
       - MY_SECRET_KEY
       - MY_STORAGE_DIR=/storage
     volumes:
