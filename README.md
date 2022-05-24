@@ -19,12 +19,21 @@ Prerequisites:
 
 Notable changes to `settings.py`:
 
-- Specify SECRET_KEY using environment variable
+- Specify `SECRET_KEY` using environment variable
     ```diff
     -SECRET_KEY = "django-insecure-@yv*q_)..."
     +SECRET_KEY = os.getenv("MY_SECRET_KEY")
     ```
-- Specify ALLOWED_HOSTS (`"*"` is used only for demonstrative purposes)
+    1. Generate your secret key like so:
+        ```
+        from django.core.management.utils import get_random_secret_key
+        get_random_secret_key()
+        ```
+    2. Place it into a `.env` file, which must not be commited to version control:
+        ```
+        MY_SECRET_KEY=XXXXXXXX
+        ```
+- Specify `ALLOWED_HOSTS` (here `"*"` is used only for demonstrative purposes)
     ```diff
     -ALLOWED_HOSTS = []
     +ALLOWED_HOSTS = ["*"]
@@ -39,7 +48,7 @@ Notable changes to `settings.py`:
         }
     }
     ```
-- Specify STATIC_ROOT
+- Specify `STATIC_ROOT`
     ```diff
     STATIC_URL = "static/"
     +STATIC_ROOT = "static"
