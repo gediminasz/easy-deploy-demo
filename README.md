@@ -26,6 +26,7 @@ Prerequisites:
     from django.core.management.utils import get_random_secret_key
     get_random_secret_key()
     ```
+    **DO NOT commit this file to version control!**
 
 Notable changes to `settings.py`:
 
