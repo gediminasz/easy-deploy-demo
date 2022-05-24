@@ -3,10 +3,11 @@ services:
     build: .
     environment:
       MY_SECRET_KEY: 'use django.core.management.utils.get_random_secret_key to generate your secret key'
+      MY_STORAGE_DIR: /storage
     ports:
       - 80:80
-#   volumes:
-#     - storage:${STORAGE_DIR}
+    volumes:
+      - storage:/storage
     restart: unless-stopped
 
 volumes:

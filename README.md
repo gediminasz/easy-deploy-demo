@@ -1,10 +1,9 @@
 This set up covers the following:
 
-- Docker
-- Configuration as code
-- Persistence (SQLite)
-- Automatic HTTPS
-- Static files
+- Configuration as code using Docker Compose
+- Persistence using SQLite
+- Static files serving using uWSGI
+- Automatic HTTPS using Traefik
 
 Prerequisites:
 
@@ -20,7 +19,7 @@ Prerequisites:
 
 Notable changes to `settings.py`:
 
-- Specify SECRET_KEY using environment variables
+- Specify SECRET_KEY using environment variable
     ```diff
     -SECRET_KEY = "django-insecure-@yv*q_)..."
     +SECRET_KEY = os.getenv("MY_SECRET_KEY")
@@ -29,6 +28,16 @@ Notable changes to `settings.py`:
     ```diff
     -ALLOWED_HOSTS = []
     +ALLOWED_HOSTS = ["*"]
+    ```
+- Specify database location using environment variable
+    ```diff
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+    -       "NAME": BASE_DIR / "db.sqlite3",
+    +       "NAME": Path(os.getenv("MY_STORAGE_DIR", BASE_DIR)) / "db.sqlite3",
+        }
+    }
     ```
 - Specify STATIC_ROOT
     ```diff
