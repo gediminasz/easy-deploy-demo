@@ -13,4 +13,6 @@ COPY run.sh /app/run.sh
 
 RUN poetry run python manage.py collectstatic --no-input --clear
 
+EXPOSE 80
+
 CMD ./run.sh
