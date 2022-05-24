@@ -3,7 +3,7 @@ This set up covers the following:
 - Configuration as code using Docker Compose
 - Persistence using SQLite
 - Static files serving using uWSGI
-- Automatic HTTPS using Traefik
+- Automatic HTTPS using Caddy
 
 Prerequisites:
 
