@@ -1,7 +1,7 @@
 This set up covers the following:
 
-- Remote execution using using Docker Compose and `DOCKER_HOST=ssh://...`
 - Configuration as code using Docker Compose
+- Remote execution using using Docker Compose and `DOCKER_HOST=ssh://...`
 - Persistence using SQLite
 - Static files serving using uWSGI
 - Automatic HTTPS using Caddy
